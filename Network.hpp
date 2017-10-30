@@ -4,22 +4,29 @@
 #include <array>
 #include <vector>
 #include <random>
+#include <cassert>
+#include "Neuron.hpp"
 
 class Network{
-	private:
+	
+	public:
 	
 		static constexpr int nb_neurons = 12500; //Les 10000 premiers sont excitatory, les 2500 suivants sont inhibitory
 		
-		std::array<std::array<bool,nb_neurons>, nb_neurons> connection; //Matrice carrée, si connection[i][j]=true --> i est connecté à j (et non l'inverse!)
+		static constexpr int N_E = 0.8*nb_neurons;///< number of excitatory neurons
+		static constexpr int N_I = 0.2*nb_neurons; ///< number of inhibitory neurons
 		
-	public:
+		static constexpr unsigned int C_E = 0.1*Network::N_E; ///<
+		static constexpr unsigned int C_I = 0.1*Network::N_I;
 		
-		std::vector<int> getTargets(int n) const;
-		
-		bool isExcitatory(int i) const;
+		std::vector<unsigned int> getTargets(int n) const;
 		
 		~Network();
 		Network();
+	
+	private:
+		
+		std::vector<std::vector<unsigned int>> connection; ///< connection[n][j]=i means that neuron n can transmit a PSP to neuron i, size : nb_neuron x (C_I+C_E)
 };
 
 #endif

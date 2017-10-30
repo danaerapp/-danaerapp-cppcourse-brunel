@@ -1,9 +1,9 @@
 #include "Inhibitory.hpp"
 
 Inhibitory::Inhibitory()
-:Neuron(0.5)
+:Neuron(J_I)
 {}
 
 Inhibitory::Inhibitory(double p, double s, std::vector<double> t)
-: Neuron(p,s,t,0.5)
+: Neuron(p,s,t,J_I)
 {}

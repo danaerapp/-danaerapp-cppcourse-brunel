@@ -1,9 +1,9 @@
 #include "Excitatory.hpp"
 
 Excitatory::Excitatory()
-: Neuron(0.1)
+: Neuron(Neuron::J_E)
 {}
 
 Excitatory::Excitatory(double p, double s, std::vector<double> t)
-: Neuron(p,s,t,0.1)
+: Neuron(p,s,t,J_E)
 {}
