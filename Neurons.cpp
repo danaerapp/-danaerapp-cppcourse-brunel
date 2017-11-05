@@ -8,28 +8,8 @@ double Neurons::getSpikesNumber(int n) const{
 	return spikesNumber[n];
 }
 
-double Neurons::getWeight(unsigned int n) const{
-	return weights[n];
-}
-
-std::vector<unsigned int> Neurons::getTargets(unsigned int n) const{
-	return targets[n];
-}
-
-std::vector<double> Neurons::getBuffer(unsigned int n) const{
-	return buffer[n];
-}
-
-int Neurons::getTemps_Pause(unsigned int n) const{
-	return temps_pause[n];
-}
-
 double Neurons::getTime(int n, unsigned int i) const{
 	return times[n][i];
-}
-
-void Neurons::setTemps_Pause(unsigned int n, int t){
-	temps_pause[n]=t;
 }
 
 void Neurons::setPotential(int n, double i){
@@ -64,8 +44,6 @@ void Neurons::update(){
 			potentials[n] = exphtau*potentials[n] + buffer[n][clock_%Dmax] + J_E*d(gen); //Temps actuel modulo delay max+1 nous donne le nb de steps avant de recevoir le spike
 			
 			if (potentials[n] >= Vth){ //Le neurone spike
-				//addTime(n,clock_);
-				//addSpike(n);
 				times[n].push_back(clock_);
 				spikesNumber[n]+=1;
 				temps_pause[n]=(tauRef/h);

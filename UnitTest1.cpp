@@ -21,7 +21,7 @@ TEST (NeuronTest, BufferEmptied){
 		neurones.update();
 
 		for (int n(0); n < Neurons::nb_neurons; ++n){
-				EXPECT_EQ(neurones.getBuffer(n)[t%15] , 0.0);
+				EXPECT_EQ(neurones.buffer[n][t%15] , 0.0);
 		}
 	}
 }
@@ -37,20 +37,20 @@ TEST (NeuronTest, TransmissionToBuffer){ ///< Look at spike transmission after o
 		buff.push_back(std::vector<double> (Dmax,0.0));
 		
 		if (neurones.getPotential(n) > Neurons::Vth){
-			for (unsigned int i(0); i<neurones.getTargets(n).size();++i){
+			for (unsigned int i(0); i<neurones.targets[n].size();++i){
 				if (n<Neurons::N_E){
-					EXPECT_EQ(neurones.getWeight(n),0.1);
-					buff[neurones.getTargets(n)[i]][(Dmax+1)%Dmax]+=neurones.getWeight(n);			
+					EXPECT_EQ(neurones.weights[n],0.1);
+					buff[neurones.targets[n][i]][(Dmax+1)%Dmax]+=neurones.weights[n];			
 				}else{
-					EXPECT_EQ(neurones.getWeight(n),-0.1*Neurons::g);
-					buff[neurones.getTargets(n)[i]][(Dmax+1)%Dmax]+=neurones.getWeight(n);
+					EXPECT_EQ(neurones.weights[n],-0.1*Neurons::g);
+					buff[neurones.targets[n][i]][(Dmax+1)%Dmax]+=neurones.weights[n];
 				}
 			}
 		}
 	}
 	
 	for (int n(0); n < Neurons::nb_neurons; ++n){
-		EXPECT_EQ(buff[n],neurones.getBuffer(n));
+		EXPECT_EQ(buff[n],neurones.buffer[n]);
 	}
 }
 
@@ -80,20 +80,20 @@ TEST (NeuronTest, RefractoryPeriod){
 	Neurons neurones;
 	
 	for (int n(0); n < Neurons::nb_neurons; ++n){
-		neurones.setPotential(n,Neurons::Vth);
-		neurones.setTemps_Pause(n, 20); ///< tauRef = 2.0 ms
+		neurones.potentials[n]=Neurons::Vth;
+		neurones.temps_pause[n]=20; ///< tauRef = 2.0 ms
 	}
 	
 	for (int t(1);t<=20;++t){
 		neurones.update();
 		for (int n(0); n < Neurons::nb_neurons; ++n){
-			EXPECT_EQ(neurones.getTemps_Pause(n),20-t);
+			EXPECT_EQ(neurones.temps_pause[n],20-t);
 		}
 	}
 	
 	for (int n(0); n < Neurons::nb_neurons; ++n){
-		EXPECT_EQ(neurones.getPotential(n),0);
-		EXPECT_EQ(neurones.getTemps_Pause(n),0);
+		EXPECT_EQ(neurones.potentials[n],0);
+		EXPECT_EQ(neurones.temps_pause[n],0);
 	}
 }
 
