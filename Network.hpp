@@ -1,4 +1,4 @@
-#ifndef NETWORK_HPP
+/*#ifndef NETWORK_HPP
 #define NETWORK_HPP
 
 #include <array>
@@ -30,3 +30,4 @@ class Network{
 };
 
 #endif
+*/

@@ -1,4 +1,4 @@
-#include "Neuron.hpp"
+/*#include "Neuron.hpp"
 
 double Neuron::getPotential() const{
 	return potential;
@@ -54,13 +54,13 @@ void Neuron::update(){
 		}
 		
 	}else if (buffer[clock_%Dmax] > 0.0){ //Temps actuel modulo delay max+1 nous donne le nb de steps avant de recevoir le spike
-		potential=Neuron::exphtau*potential + buffer[clock_%Dmax] + d(gen);
+		potential=Neuron::exphtau*potential + buffer[clock_%Dmax] + J_E*d(gen);
 		
 		buffer[clock_%Dmax] =0.0 ; //Reset the PSP
 	}else{
 		//Calcul du potentiel
 		double new_potential(0.0);
-		new_potential=exphtau*potential + d(gen);
+		new_potential=exphtau*potential + J_E*d(gen);
 		
 		if (new_potential >= Vth){ //Le neurone spike
 			addTime(clock_);
@@ -89,3 +89,4 @@ Neuron::Neuron(double p, double s, std::vector<double> t, double J)
 		times[i]=t[i];
 	}
 }
+*/

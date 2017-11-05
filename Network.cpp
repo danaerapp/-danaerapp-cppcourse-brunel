@@ -1,4 +1,4 @@
-#include "Network.hpp"
+/*#include "Network.hpp"
 
 Network::Network()
 {
@@ -11,7 +11,7 @@ Network::Network()
 	 * A neuron can receive many connection from one neuron
 	 * One neuron can be one of its targets, can be connected to itself
 	 * For neuron n: connection[n][i] 0=<i<=9999 reppresent the excitatory connections, connection[n][i] 10000<=i<=12499 reppresent the inhibitory connections.
-	 */
+	 *
 	
 	//assert(connection.size() == nb_neurons);
 	//assert(connection[0].size() == (C_I+C_E));
@@ -53,3 +53,4 @@ std::vector<unsigned int> Network::getTargets(int n) const{
 	
 	return targets;
 }
+*/

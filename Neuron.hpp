@@ -1,4 +1,4 @@
-#ifndef NEURON_HPP
+/*#ifndef NEURON_HPP
 #define NEURON_HPP
 
 #include <array>
@@ -44,7 +44,7 @@ class Neuron{
 	
 	/**
 	 *  Class Attributes
-	 */
+	 *//*
 		static constexpr double h = 0.1; ///< Our time step, in milliseconds.
 		static constexpr double Vth = 20.0; ///< Threshold potential, spike potential, in millivolts.
 		static constexpr double R = 20.0; ///< Membrane resistance, in picoFarad, tau/C = R.
@@ -53,49 +53,49 @@ class Neuron{
 		/**
 		 * a getter returning the membrane potential
 		 */
-		double getPotential() const;
+		/*double getPotential() const;
 		
 		/**
 		 * a getter returning the number of spikes that have occured
 		 */
-		double getSpikesNumber() const;
+		/*double getSpikesNumber() const;
 		
 		/**
 		 * a function taking an integer and returning the time at which a spike occured
 		 * @param i an integer, corresponds to the cell in the vector containing all spikes times
 		 * @return The ith spike time, in nb of steps (not in seconds)
 		 */
-		double getTime(unsigned int i) const;
+	/*	double getTime(unsigned int i) const;
 		
 		/**
 		 * a getter returning the post synaptic potential
 		 */
-		double getJ() const;
+	/*	double getJ() const;
 		
 		/**
 		 * a function returning true if the neuron is refractory, false if not
 		 * @return A bool corresponding to its refractory state
 		 */
-		bool isRefractory() const;
+	/*	bool isRefractory() const;
 		
 		/**
 		 * a setter, to attribute a certain value to the membrane potential
 		 * @param i a double
 		 */
-		void setPotential(double i);
+	/*	void setPotential(double i);
 		
 		/**
 		 * a function that increment the number of spikes by one
 		 * @see spikesNumber
 		 */
-		void addSpike();
+	/*	void addSpike();
 		
 		/**
 		 * a function that adds a new spike time in the spike time vector
 		 * @param t a double, the time we want to store
 		 * @see times
 		 */
-		void addTime(double t);
+	/*	void addTime(double t);
 		
 		/**
 		 * 
@@ -105,7 +105,7 @@ class Neuron{
 		 * 
 		 * 
 		 */
-		void update();
+	/*	void update();
 		
 		/**
 		 * 
@@ -114,15 +114,7 @@ class Neuron{
 		 * 
 		 * 
 		 */
-		void receive(double J); // J :current weight, post synaptic potential amplitude 
-		
-		/**
-		 * a Constructor
-		 * 
-		 * 
-		 * 
-		 */
-		Neuron(double J);
+	/*	void receive(double J); // J :current weight, post synaptic potential amplitude 
 		
 		/**
 		 * a Constructor
@@ -130,13 +122,22 @@ class Neuron{
 		 * 
 		 * 
 		 */
-		Neuron(double p, double s, std::vector<double> t, double J);
+	/*	Neuron(double J);
+		
+		/**
+		 * a Constructor
+		 * 
+		 * 
+		 * 
+		 */
+	/*	Neuron(double p, double s, std::vector<double> t, double J);
 		
 		/**
 		 * a Destructor
 		 */
-		~Neuron(){}
+	/*	~Neuron(){}
 	
 };
 
 #endif
+*/

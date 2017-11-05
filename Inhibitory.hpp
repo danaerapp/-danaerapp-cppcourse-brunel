@@ -1,4 +1,4 @@
-#ifndef INHIBITORY_HPP
+/*#ifndef INHIBITORY_HPP
 #define INHIBITORY_HPP
 
 #include "Neuron.hpp"
@@ -12,3 +12,4 @@ class Inhibitory : public Neuron{
 };
 
 #endif
+*/
