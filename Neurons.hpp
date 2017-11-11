@@ -26,7 +26,7 @@ class Neurons{
 		static constexpr double tauRef = 2.0; ///< Refractory time (= time during which a neuron is not sensible to external simulation), in ms.
 		static constexpr double Erepos = 0.0; ///< In mV.
 		static constexpr double Vreset = 0.0; ///< Reset potential, in mV.
-		static constexpr double eta = 0.9; ///< a constant that is equal to nu_ext/nu_thr
+		static constexpr double eta = 2.0; ///< a constant that is equal to nu_ext/nu_thr
 		
 		const int Dmax; ///< Dmax = delay/h, Maximum delay, useful for the delay buffer, in nb of steps.
 		const double exphtau = exp(-(h/tau)); ///< Constant used in update, to calculate the potential.
@@ -63,7 +63,7 @@ class Neurons{
 		static constexpr double Vth = 20.0; ///< Threshold potential, spike potential, in millivolts.
 		static constexpr double R = 20.0; ///< Membrane resistance, in picoFarad, tau/C = R.
 		static constexpr double delay = 1.5; ///< Time between a spike and the reception of this spike by a target neuron, in ms.
-		static constexpr double g = 4.5; ///< g=J_I/J_E, where J_I and J_E are the current weights for inhibitory and excitatory neurons respectively.
+		static constexpr double g = 5.0; ///< g=J_I/J_E, where J_I and J_E are the current weights for inhibitory and excitatory neurons respectively.
 	
 		/**
 		 * A getter returning the membrane potential for neuron n

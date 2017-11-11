@@ -3,7 +3,7 @@
 #include "Neurons.hpp"
 #include "Experiment.hpp"
 
-TEST (NeuronTest, OneSpike){
+TEST (NeuronTest, OneSpike){ ///< Check that the number of spikes and the time corresponding are well stored
 	Neurons neurones;
 	neurones.update();
 	
@@ -15,7 +15,7 @@ TEST (NeuronTest, OneSpike){
 	}
 }
 
-TEST (NeuronTest, BufferEmptied){
+TEST (NeuronTest, BufferEmptied){ ///< Checks that the buffer corresponding to the clock_ is emptied
 	Neurons neurones;
 	for (int t(1);t<=Neurons::delay/Neurons::h;++t){
 		neurones.update();
@@ -54,7 +54,7 @@ TEST (NeuronTest, TransmissionToBuffer){ ///< Look at spike transmission after o
 	}
 }
 
-TEST (NeuronTest, ExperimentNbSteps){
+TEST (NeuronTest, ExperimentNbSteps){ ///< Check if the number of steps is coherent with the time given to the method Experiment::run(double t)
 	Experiment ex;
 	ex.run(0.1);
 	EXPECT_EQ(ex.nb_steps,1);
@@ -63,7 +63,7 @@ TEST (NeuronTest, ExperimentNbSteps){
 	EXPECT_EQ(ex.nb_steps,10);
 }
 
-TEST (NeuronTest, NeuronsSetters){
+TEST (NeuronTest, NeuronsSetters){ ///< Check if the setters work correctly
 	Neurons neurones;
 	for (int n(0); n < Neurons::nb_neurons; ++n){
 		neurones.addTime(n, 1);
@@ -76,7 +76,7 @@ TEST (NeuronTest, NeuronsSetters){
 	}
 }
 
-TEST (NeuronTest, RefractoryPeriod){
+TEST (NeuronTest, RefractoryPeriod){ ///< Check that a neuron that has just spiked is insensible to incoming spikes during a period (refractory period)
 	Neurons neurones;
 	
 	for (int n(0); n < Neurons::nb_neurons; ++n){

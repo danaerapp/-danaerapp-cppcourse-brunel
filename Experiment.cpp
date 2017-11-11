@@ -10,7 +10,6 @@ void Experiment::run(double t){
 	for (int t(0); t < nb_steps; ++t){
 		n.update();
 		
-		//if ((t/10) % 10 == 0){
 			if (data.fail()){
 						std::cerr<< "Erreur d'ouverture du fichier" << std::endl;
 					}else{
@@ -24,7 +23,6 @@ void Experiment::run(double t){
 							}
 						}
 					}
-		//}
 	}
 }
 
